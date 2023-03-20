@@ -1,0 +1,64 @@
+// EXERCICIO AULA 4 NUMERO 1 (CODIGO)
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct {
+    char nome[100];
+    char fabricante[100];
+    float preco;
+    int quantidade;
+} Medicamentos;
+
+int main() {
+    int n;
+    printf("Digite a quantidade de medicamentos que deseja cadastrar: ");
+    scanf("%d", &n);
+    
+    // Alocacão na memória
+    Medicamentos *medicamentos = (Medicamentos*) malloc(n * sizeof(Medicamento));
+    
+    // Cadastro
+    for (int i = 0; i < n; i++) {
+        printf("Digite o nome do remedio %d: ", i + 1);
+        scanf("%s", medicamentos[i].nome);
+        printf("Digite o fabricante %d: ", i + 1);
+        scanf("%s", medicamentos[i].fabricante);
+        printf("Digite o preço %d: ", i + 1);
+        scanf("%f", &medicamentos[i].preco);
+        printf("Digite a quantidade de remedios %d: ", i + 1);
+        scanf("%d", &medicamentos[i].quantidade);
+    }
+
+    printf("\nMedicamentos cadastrados: \n");
+    for (int i = 0; i < n; i++) {
+        printf("Medicamento %d:\n", i + 1);
+        printf("Nome: %s\n", medicamentos[i].nome);
+        printf("Fabricante: %s\n", medicamentos[i].fabricante);
+        printf("Preço: %.2f\n", medicamentos[i].preco);
+        printf("Quantidade: %d\n", medicamentos[i].quantidade);
+        printf("\n");
+    }
+    
+    // Realloc na memória
+    Medicamentos = (int*) realloc(medicamentos, n * 2 * sizeof(int));
+    
+    for (int i = n; i < n * 2; i++) {
+        medicamentos[i] = i;
+    }
+    
+    printf("\n Nova memória: \n");
+    for (int i = 0; i < n * 2; i++) {
+        printf("%d ", medicamentos[i]);
+    }
+
+    free(medicamentos);
+    
+    return 0;
+}
+
+
+// EXERCICIO NUMERO 2 (DIFERENÇA MALLOC E CALLOC)
+
+Malloc() é usado para alocar estruturas no ponteiro enquanto calloc() precisa de dois argumentos, o que nesse exemplo específico não foi preciso.
