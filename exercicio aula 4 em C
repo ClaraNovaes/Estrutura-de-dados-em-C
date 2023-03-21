@@ -62,3 +62,4 @@ int main() {
 // EXERCICIO NUMERO 2 (DIFERENÇA MALLOC E CALLOC)
 
 Malloc() é usado para alocar estruturas no ponteiro enquanto calloc() precisa de dois argumentos, o que nesse exemplo específico não foi preciso.
+Além do calloc separar a quantidade de memória solicitada, ele já inicializa as posições do zero.
